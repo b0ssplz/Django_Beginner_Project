@@ -81,12 +81,12 @@ def create_post(request):
         new_post = Post(
             title=title,
             content=content,
-            aouthor=author
+            author=author
         )
         
         new_post.save()
         
-        return redirect('create_post')
+        return redirect('posts_home')
         
     context = {
         'form':form
