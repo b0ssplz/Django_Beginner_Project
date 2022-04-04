@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    {% comment %} <h1>Hello {{name}}</h1> {% endcomment %}
+
+    <header>
+        <a class = "nav-link" href="{% url 'posts_home' %}">Home</a>
+        <a class = "nav-link" href="{% url 'posts_about' %}">About</a>
+        <a class = "nav-link" href="{% url 'posts_services' %}">Services</a>
+        <a class = "nav-link" href="{% url 'create_post' %}">Create Post</a>
+    </header>
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <!-- <footer>
+        &copy; Django Beginner Project
+    </footer>
+
+    <script src="{% static 'js/index.js' %}">
+
+    </script> -->
+
+</body>
+</html>
