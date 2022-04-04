@@ -16,6 +16,7 @@ header{
 }
 
 
+
 a{
     text-decoration: none ; 
 }
@@ -32,7 +33,33 @@ h1{
     width: 200px;
 }
 
-.form{
-    margin: 100px;
-    padding: 40px;
+form{
+    margin-top:  100px;
+    margin: auto;
+    width:50%;
+
+}
+
+.form-control{
+    width: 100%;
+    font-size: 20px;
+}
+
+.label{
+    margin-top: 20px;
+}
+
+
+.btn{
+    border: none;
+    background-color:  rgb(33, 33, 33);
+    cursor:pointer;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
 }

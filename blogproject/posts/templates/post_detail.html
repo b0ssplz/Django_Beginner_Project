@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static  %}
+
+{% block content %}
+
+        <div class = "post">
+            <!-- <h2>{{ post.title }}</h2> -->
+            <h1>{{post.id}} | {{post.title}}</h1>
+            <p>By {{ post.author }}</p>
+            <img src="{% static 'images/lusia.jpg' %}" alt="photo" class="image">
+        </div>
+
+{% endblock content %}
