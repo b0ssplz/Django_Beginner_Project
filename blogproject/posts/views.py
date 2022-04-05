@@ -4,6 +4,8 @@ from django.http import HttpRequest, HttpResponse
 from .forms import PostCreationForm
 from .models import Post
 
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 # posts=[
@@ -68,7 +70,7 @@ def greet(request:HttpRequest):
 #         if post["id"] == post_id:          
 #             return HttpResponse(str(post))
         
-    
+@login_required
 def create_post(request):
     form = PostCreationForm()
     
@@ -113,6 +115,7 @@ def post_detail(request,post_id):
     
     return render(request,'post_detail.html', context)
 
+@login_required
 def update_post(request,post_id):
     
     post_to_update = Post.objects.get(pk=post_id)
