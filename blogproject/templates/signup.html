@@ -6,14 +6,36 @@
     {% csrf_token %}
     <!-- {{form.as_p}} -->
     <h1>Sign up</h1>
+
+
+    <!-- {% if form.errors %}
+        <p>{{form.errors}}</p>
+    {% endif %} -->
+
     {% for field in form %}
         <div class="form-goup">
             <p class="label"> {{ field.label}}</p>
             {{field}}
+
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <p class = "error">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+
         </div>
     {% endfor %}
+    
+    <div class="form-goup">
+        <input type="submit" value="Submit" class="btn">
+    </div>
 
-    <input type="submit" value="Submit" class="btn">
+    <div class="form-goup">
+        <small>
+            <p>Already have an account? <a href="{% url 'login'%}" >Login</a></p>
+        </small>
+    </div>
+
 </form>
 
 {% endblock content %}

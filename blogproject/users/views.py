@@ -1,7 +1,10 @@
 import email
 from pyexpat import model
 from django.shortcuts import render, redirect
+
 from .forms import LoginForm, UserRegistrationForm
+from posts.forms import PostCreationForm
+
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -14,17 +17,24 @@ def sign_up(request):
     form = UserRegistrationForm()
     
     if request.method == "POST":
-        username = request.POST["username"]
-        email = request.POST["email"]
-        password = request.POST["password"]
-        confirm = request.POST["confirm"]
+        # username = request.POST["username"]
+        # email = request.POST["email"]
+        # password = request.POST["password"]
+        # confirm = request.POST["confirm"]
 
-        if password == confirm:
-            new_user = User.objects.create_user(username=username,
-                                                email=email, 
-                                                password=password)
-            new_user.set_password(password)
-            new_user.save()
+        # if password == confirm:
+        #     new_user = User.objects.create_user(username=username,
+        #                                         email=email, 
+        #                                         password=password)
+        #     new_user.set_password(password)
+        #     new_user.save()
+            
+        #     return redirect('posts_home')
+        
+        form = UserRegistrationForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
             
             return redirect('posts_home')
     
