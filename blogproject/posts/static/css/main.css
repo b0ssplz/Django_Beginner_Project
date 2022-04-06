@@ -68,3 +68,11 @@ form{
 .error{
     color: crimson;
 }
+
+
+.alert{
+    padding: 20px;
+    text-align: center;
+    background-color:rgb(27, 27, 27);
+    color: aliceblue;
+}

@@ -8,6 +8,7 @@ from posts.forms import PostCreationForm
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 # Create your views here.
 
 
@@ -36,12 +37,20 @@ def sign_up(request):
         if form.is_valid():
             form.save()
             
-            return redirect('posts_home')
+            messages.success(request,"User Creation Success")
+            
+            return redirect('login')
     
     context = {
         'form':form
     }
     return render(request, 'signup.html',context)
+
+
+
+
+
+
 
 def login_user(request):
     

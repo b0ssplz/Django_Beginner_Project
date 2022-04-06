@@ -3,9 +3,27 @@
 {% block content %}
     
 <form action="" method="post" enctype="multipart/form-data">
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="alert">{{message}}</p>
+        {% endfor %}
+    {% endif %}
+
+
     {% csrf_token %}
     <!-- {{form.as_p}} -->
     <h1>Login</h1>
+
+
+    {% if form.errors %}
+        <p class = "error">{{form.errors}}</p>
+    {% endif %}
+ 
+
+
+
     {% for field in form %}
         <div class="form-goup">
             <p class="label"> {{ field.label}}</p>
@@ -13,7 +31,7 @@
         </div>
     {% endfor %}
 
-    <input type="submit" value="Submit" class="btn">
+    <input type="submit" value="Login" class="btn">
 
     <div class="form-goup">
         <small>
