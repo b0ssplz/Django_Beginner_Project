@@ -17,21 +17,17 @@
 
     {% endfor %}
 
-    <div class="pagination">
 
-        {% if posts.has_previous %}
-            <a href = "{% url 'posts_home' %}?page={{posts.previous_page_number}}"> Previous </a>
-        {% endif %}
+    <div class = "footer">
+            {% if posts.has_previous %}
+                <a class = "nav-link" href = "{% url 'posts_home' %}?page={{posts.previous_page_number}}"> Previous </a>
+            {% endif %}
 
-        {% if posts.has_next %}
-            <a href = "{% url 'posts_home' %}?page={{posts.next_page_number}}"> Next </a>
-        {% endif %}
-        ({{posts.number}}/{{posts.paginator.num_pages}})
-
-
-
-
-    </div>
+            {% if posts.has_next %}
+                <a class = "nav-link" href = "{% url 'posts_home' %}?page={{posts.next_page_number}}"> Next </a>
+            {% endif %}
+            <a class = "nav-link" >({{posts.number}}/{{posts.paginator.num_pages}})</a>
+    </footer>
 
 
     {% endblock content %}
